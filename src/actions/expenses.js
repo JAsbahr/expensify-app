@@ -6,7 +6,7 @@ export const addExpense = (expense) => ({
     expense
 });
 
-export const startAddExpense = (expenseData = {}) => {    // works beacause of thunk
+export const startAddExpense = (expenseData = {}) => {    // works because of thunk
     return (dispatch) => {
         const {                         // andere Schreibweise für defaults wie ehemals addExpense (als object in Klammer)
             description = "",
@@ -35,3 +35,24 @@ export const editExpense = (id, updates) => ({
     id,
     updates
 })
+
+export const setExpenses = (expenses) => ({
+    type: "SET_EXPENSES",
+    expenses
+})
+
+export const startSetExpenses = () => {
+    return (dispatch) => {
+        const expenses = []
+        return database.ref("expenses").once("value").then((snapshot) => { //snapshot is object structure, we need array structure
+            snapshot.forEach((childSnapshot) => {
+                expenses.push({
+                    id: childSnapshot.key,
+                    ...childSnapshot.val()
+                })
+            })
+            
+            dispatch(setExpenses(expenses))
+        })
+    }
+}
