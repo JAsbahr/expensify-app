@@ -30,6 +30,14 @@ export const removeExpense = ({ id } = {}) => ({        // destructuring used wh
     id
 })
 
+export const startRemoveExpense = ({ id }) => {
+    return (dispatch) => {
+        return database.ref("expenses").child(id).remove().then(() => {  // or `expenses${id}` for child(id)
+            dispatch(removeExpense({ id }))
+        })
+    }
+}
+
 export const editExpense = (id, updates) => ({
     type: "EDIT_EXPENSE",
     id,
@@ -51,7 +59,7 @@ export const startSetExpenses = () => {
                     ...childSnapshot.val()
                 })
             })
-            
+
             dispatch(setExpenses(expenses))
         })
     }
