@@ -4,11 +4,10 @@ import createHistory from "history/createBrowserHistory";
 import DashboardPage from "../components/DashboardPage";
 import AddPage from "../components/AddPage";
 import EditPage from "../components/EditPage";
-import HelpPage from "../components/HelpPage";
 import LoginPage from "../components/LoginPage"
 import NotFoundPage from "../components/NotFoundPage";
-import Header from "../components/Header";
 import PrivateRoute from "./PrivateRoute"
+import PublicRoute from "./PublicRoute"
 
 export const history = createHistory()
 
@@ -16,11 +15,10 @@ const AppRouter = () => (
     <Router history={history}> 
         <div>
             <Switch>
-                <Route path="/" component={LoginPage} exact={true} />
+                <PublicRoute path="/" component={LoginPage} exact={true} />
                 <PrivateRoute path="/dashboard" component={DashboardPage} />
                 <PrivateRoute path="/create" component={AddPage} />
                 <PrivateRoute path="/edit/:id" component={EditPage} />
-                <PrivateRoute path="/help" component={HelpPage} />
                 <PrivateRoute component={NotFoundPage} />
             </Switch>
         </div>
