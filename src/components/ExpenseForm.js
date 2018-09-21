@@ -59,18 +59,19 @@ export default class ExpenseForm extends React.Component {
 
     render() {
         return (
-            <div>
-                {this.state.error && <p>{this.state.error}</p>}
-                <form onSubmit={this.onSubmit}>
-                    <input 
+                <form className="form" onSubmit={this.onSubmit}>
+                    {this.state.error && <p className="form__error">{this.state.error}</p>}
+                    <input
                         type="text"
                         placeholder="Description"
                         autoFocus
+                        className="text-input"
                         value={this.state.description}
                         onChange={this.onDescriptionChange}
                     />
                     <input
                         type="text"
+                        className="text-input"
                         placeholder="Amount"
                         value={this.state.amount}
                         onChange={this.onAmountChange}
@@ -81,17 +82,19 @@ export default class ExpenseForm extends React.Component {
                         focused={this.state.calendarFocused}
                         onFocusChange={this.onFocusChange}
                         numberOfMonths={1}
-                        isOutsideRange={() => false }
+                        isOutsideRange={() => false}
                     />
-                    <textarea   
+                    <textarea
                         placeholder="Add a note to your expense (optional)"
                         value={this.state.note}
-                        onChange={this.onNoteChange}    
+                        onChange={this.onNoteChange}
+                        className="text-area"
                     >
                     </textarea>
-                    <button>Add expense</button>
+                    <div>
+                        <button className="button">Save expense</button>
+                    </div>
                 </form>
-            </div>
-        )   
+        )
     }
 }
