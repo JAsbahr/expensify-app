@@ -37,5 +37,10 @@ exports[`should render edit page 1`] = `
       Remove expense
     </button>
   </div>
+  <RemoveModal
+    onModalNo={[Function]}
+    onModalYes={[Function]}
+    showModal={false}
+  />
 </div>
 `;
