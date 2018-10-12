@@ -11,16 +11,28 @@ exports[`should render the ExpensesSummary correctly with 1 expense 1`] = `
       className="page-header__title"
     >
       Viewing 
-      <span>
-        1
-      </span>
+      <span />
        
-      expense
+      expenses
        totalling 
       <span>
-        $2.35
+        $0.00
       </span>
     </h1>
+    <p
+      className="page-header__hidden"
+    >
+      <span>
+        NaN
+      </span>
+       
+      expenses
+       totalling 
+      <span>
+        $0.00
+      </span>
+       hidden due to filters
+    </p>
     <div
       className="page-header__actions"
     >
@@ -47,16 +59,28 @@ exports[`should render the ExpensesSummary correctly with more than 1 expense 1`
       className="page-header__title"
     >
       Viewing 
+      <span />
+       
+      expenses
+       totalling 
       <span>
-        23
+        $0.00
+      </span>
+    </h1>
+    <p
+      className="page-header__hidden"
+    >
+      <span>
+        NaN
       </span>
        
       expenses
        totalling 
       <span>
-        $153.24
+        $0.00
       </span>
-    </h1>
+       hidden due to filters
+    </p>
     <div
       className="page-header__actions"
     >

@@ -27,7 +27,7 @@ export const startAddExpense = (expenseData = {}) => {    // works because of th
     }
 }
 
-export const removeExpense = ({ id } = {}) => ({        // destructuring used when getting an object/array
+export const removeExpense = ({ id} = {}) => ({        // destructuring used when getting an object/array
     type: "REMOVE_EXPENSE",
     id
 })
