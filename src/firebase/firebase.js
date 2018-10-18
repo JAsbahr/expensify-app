@@ -11,7 +11,7 @@ const config = {
 
 firebase.initializeApp(config);
 
-const database = firebase.database() 
+const database = firebase.database()
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider()
 const twitterAuthProvider = new firebase.auth.TwitterAuthProvider()
 
@@ -57,12 +57,12 @@ export { firebase, googleAuthProvider, twitterAuthProvider, database as default 
 // //         console.log(expenses)
 // //     })
 
-// // database.ref("expenses").push({
-// //     description: "ice",
-// //     note: "",
-// //     amount: 3.00,
-// //     createdAt: 1000
-// // })
+// database.ref("expenses").push({
+//     description: "ice",
+//     note: "",
+//     amount: 3.00,
+//     createdAt: 1000
+// })
 
 // // database.ref("notes").push({
 // //     title: "course topics",
