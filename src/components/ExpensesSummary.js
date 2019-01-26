@@ -6,11 +6,11 @@ import selectExpensesTotal from "../selectors/selectExpensesTotal";
 import numeral from "numeral"
 
 export const ExpensesSummary = ({ visibleExpenseCount, visibleExpensesTotal, allExpenseCount, allExpensesTotal }) => {
-    const expenseWord = visibleExpenseCount === 1 ? "expense" : "expenses"
-    const expenseWordHidden = allExpenseCount === 1 ? "expense" : "expenses"
-    const formattedVisibleExpensesTotal = numeral(visibleExpensesTotal / 100).format('$0,0.00')
-    const formattedAllExpensesTotal = numeral((allExpensesTotal - visibleExpensesTotal)/ 100).format('$0,0.00')
     const hiddenExpensesCount = (allExpenseCount - visibleExpenseCount)
+    const expenseWord = visibleExpenseCount === 1 ? "expense" : "expenses"
+    const expenseWordHidden = hiddenExpensesCount === 1 ? "expense" : "expenses"
+    const formattedVisibleExpensesTotal = numeral(visibleExpensesTotal / 100).format('$0,0.00')
+    const formattedAllExpensesTotal = numeral((allExpensesTotal - visibleExpensesTotal) / 100).format('$0,0.00')
     return (
         <div className="page-header">
             <div className="content-container">

@@ -8,18 +8,19 @@ import LoginPage from "../components/LoginPage"
 import NotFoundPage from "../components/NotFoundPage";
 import PrivateRoute from "./PrivateRoute"
 import PublicRoute from "./PublicRoute"
+import Header from "../components/Header";
 
 export const history = createHistory()
 
 const AppRouter = () => (
-    <Router history={history}> 
+    <Router history={history}>
         <div>
+            <Header />
             <Switch>
-                <PublicRoute path="/" component={LoginPage} exact={true} />
-                <PrivateRoute path="/dashboard" component={DashboardPage} />
-                <PrivateRoute path="/create" component={AddPage} />
-                <PrivateRoute path="/edit/:id" component={EditPage} />
-                <PrivateRoute component={NotFoundPage} />
+                <Route path="/" component={DashboardPage} exact={true} />
+                <Route path="/create" component={AddPage} />
+                <Route path="/edit/:id" component={EditPage} />
+                <Route component={NotFoundPage} />
             </Switch>
         </div>
     </Router> //BrowserRouter hätte auch funktioniert, aber history brauchen wir noch öfter und nicht nur innerhalb von BrowserRouter (ist automatisch dabei)
